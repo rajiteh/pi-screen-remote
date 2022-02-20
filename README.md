@@ -2,6 +2,18 @@
 
 This project involves making a dumb projector screen with a RF remote a smart one by triggering button presses on the remote via a Raspberry PI.
 
+## Version 2 (Latest)
+
+This version utilized a cheap 315Mhz transmitter that I managed to order from AliExpress. I used the receiver to capture the RF codes emitted by the remote and used the transmitter to emit them. This iteration resulted far less components in the chain (no octocouplers, resisters, jumper cables, a remote with batteries) but with the same outcome. Besides, now I can repurpose the octocoupler setup for another remote!
+
+TBD Image
+
+## Version 1
+
+This was the initial version of the project. While I could have used RF transmitters, I decided to experiment with octocouplers as the solution seemed like a more generic one to me. 
+
+Here, I connect the GPIO pins of the RPi in to an octocoupler (with apropriate resistence), and use it to complete a circuit on the remote control to simulate a button press. As janky as it looks, this solution worked very reliably.
+
 <center>
 
 ![](assets/setup.jpg)
@@ -9,12 +21,6 @@ This project involves making a dumb projector screen with a RF remote a smart on
 _don't let your kids near this_
 
 </center>
-
-## FAQ
-
-### Couldn't you have just used a 433Mhz RF transmitter?
-
-Yes.
 
 ## Setup
 
