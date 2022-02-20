@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 from threading import Thread
 from flask import Flask, escape, request
 from waitress import serve
@@ -6,8 +7,11 @@ from waitress import serve
 from remote_rf import ProjectorRemoteRF
 from paste.translogger import TransLogger
 
+RF_TX_PIN = int(os.environ.get('REMOTE_RF_TX_PIN', 17))
+
+remote = ProjectorRemoteRF(RF_TX_PIN)
+
 app = Flask(__name__)
-remote = ProjectorRemoteRF(17)
 
 @app.route('/stop', methods=["POST"])
 def stop():
