@@ -8,7 +8,8 @@ steps:
   settings:
     experimental: true
     auto_tag: true
-    platforms: linux/arm/v7
+    platforms: 
+    - linux/arm/v7
     username: rajiteh
     password:
       from_secret: gitlab_token
