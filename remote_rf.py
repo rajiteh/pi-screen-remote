@@ -24,13 +24,14 @@ class ProjectorRemoteRF(object):
     self.rfdevice = RFDevice(gpio)
     self.rfdevice.enable_tx()
 
-    self.rfdevice.tx_repeat = 10
+    self.rfdevice.tx_repeat = 15
     self.protocol = 1
     self.length = 24
-    self.pulselength = 190
+    self.pulselength = 191
 
   def _send_code(self, code: int):
     ProjectorRemoteRF.INTERRUPT = True
+    logger.info(f"Sending code {code} [protocol: {self.protocol} pulselength: {self.pulselength} length: {self.length}]")
     self.rfdevice.tx_code(
       code,
       self.protocol,
