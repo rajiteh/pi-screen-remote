@@ -6,7 +6,13 @@ This project involves making a dumb projector screen with a RF remote a smart on
 
 This version utilized a cheap 315Mhz transmitter that I managed to order from AliExpress. I used the receiver to capture the RF codes emitted by the remote and used the transmitter to emit them. This iteration resulted far less components in the chain (no octocouplers, resisters, jumper cables, a remote with batteries) but with the same outcome. Besides, now I can repurpose the octocoupler setup for another remote!
 
-TBD Image
+<center>
+
+![](assets/setup-v2.jpg)
+
+_almost kid-safe, but not quite?_
+
+</center>
 
 ## Version 1
 

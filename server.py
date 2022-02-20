@@ -13,6 +13,12 @@ remote = ProjectorRemoteRF(RF_TX_PIN)
 
 app = Flask(__name__)
 
+
+@app.route('/healthz', methods=["GET"])
+def health():
+    return {"status": "ok"}
+
+
 @app.route('/stop', methods=["POST"])
 def stop():
     remote.stop()
