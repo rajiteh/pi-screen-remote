@@ -1,0 +1,17 @@
+---
+kind: pipeline
+name: default
+steps:
+- name: dockerx
+  image: thegeeklab/drone-docker-buildx
+  privileged: true
+  settings:
+    experimental: true
+    auto_tag: true
+    platforms: linux/arm/v7
+    username: rajiteh
+    password:
+      from_secret: gitlab_token
+    repo: registry.gitlab.com/rajiteh/orca_containers
+    registry: registry.gitlab.com
+    auto_tag_suffix: pi-screen-remote
