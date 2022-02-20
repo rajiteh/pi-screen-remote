@@ -12,7 +12,7 @@ TBD Image
 
 This was the initial version of the project. While I could have used RF transmitters, I decided to experiment with octocouplers as the solution seemed like a more generic one to me. 
 
-Here, I connect the GPIO pins of the RPi in to an octocoupler (with apropriate resistence), and use it to complete a circuit on the remote control to simulate a button press. As janky as it looks, this solution worked very reliably.
+Here, I connect the GPIO pins of the RPi in to an octocoupler (with apropriate resistance), and use it to complete a circuit on the remote control to simulate a button press. As janky as it looks, this solution worked very reliably.
 
 <center>
 
