@@ -33,7 +33,7 @@ steps:
   environment:
     KUBECONFIG: /tmp/kubeconfig.yaml
   commands:
-  - echo "${ORCA_K3S_KUBECONFIG_B64}" | base64 -d > ${KUBECONFIG}
+  - echo "$${ORCA_K3S_KUBECONFIG_B64}" | base64 -d > $${KUBECONFIG}
   - >
     helm upgrade pi-screen-remote
      --install --create-namespace 
@@ -45,7 +45,7 @@ steps:
   environment:
     KUBECONFIG: /tmp/kubeconfig.yaml
   commands:
-  - echo "${ORCA_K3S_KUBECONFIG_B64}" | base64 -d > ${KUBECONFIG}
+  - echo "$${ORCA_K3S_KUBECONFIG_B64}" | base64 -d > $${KUBECONFIG}
   - >
     kubectl rollout restart 
       --namespace ls90-pi-screen-remote 
