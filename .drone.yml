@@ -32,14 +32,18 @@ steps:
   secrets: [orca_k3s_kubeconfig_b64]
   environment:
     KUBECONFIG: /tmp/kubeconfig.yaml
+    ORCA_K3S_KUBECONFIG_B64:
+      from_secret: orca_k3s_kubeconfig_b64
   commands:
-    - echo "$${ORCA_K3S_KUBECONFIG_B64}" | base64 -d > $${KUBECONFIG}
+    - echo "${ORCA_K3S_KUBECONFIG_B64}" | base64 -d > ${KUBECONFIG}
     - helm upgrade pi-screen-remote --install --create-namespace --namespace ls90-pi-screen-remote --debug chart/pi-screen-remote
 - name: deployment-rollout
   image: bitnami/kubectl:1.22.7
   secrets: [orca_k3s_kubeconfig_b64]
   environment:
     KUBECONFIG: /tmp/kubeconfig.yaml
+    ORCA_K3S_KUBECONFIG_B64:
+      from_secret: orca_k3s_kubeconfig_b64
   commands:
-    - echo "$${ORCA_K3S_KUBECONFIG_B64}" | base64 -d > $${KUBECONFIG}
+    - echo "${ORCA_K3S_KUBECONFIG_B64}" | base64 -d > ${KUBECONFIG}
     - kubectl rollout restart --namespace ls90-pi-screen-remote deployment pi-screen-remote
