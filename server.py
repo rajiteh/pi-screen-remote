@@ -40,5 +40,16 @@ def down():
     thread.start()
     return {"status": "ok"}
 
+class MyLogger(TransLogger):
+    HIDDEN_PATHS = [
+        '/healthz'
+    ]
+
+    def write_log(self, *args, **kwargs):
+        path = args[0].get('PATH_INFO')
+        if path not in self.HIDDEN_PATHS:
+            super().write_log(*args, **kwargs)
+        
+
 if __name__ == "__main__":
-  serve(TransLogger(app), host='0.0.0.0', port=8000)
+  serve(MyLogger(app), host='0.0.0.0', port=8000)
