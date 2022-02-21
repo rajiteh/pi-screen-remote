@@ -6,27 +6,27 @@ volumes:
   host:
     path: /var/run/docker.sock
 steps:
-- name: run
-  image: docker
-  volumes:
-  - name: dockersock
-    path: /var/run/docker.sock
-  commands:
-  - docker run --privileged --rm tonistiigi/binfmt --install all
-- name: dockerx
-  image: thegeeklab/drone-docker-buildx:20.10.14
-  privileged: true
-  settings:
-    experimental: true
-    auto_tag: true
-    platforms: 
-    - linux/arm/v7
-    username: rajiteh
-    password:
-      from_secret: gitlab_token
-    repo: registry.gitlab.com/rajiteh/orca_containers
-    registry: registry.gitlab.com
-    auto_tag_suffix: pi-screen-remote
+# - name: run
+#   image: docker
+#   volumes:
+#   - name: dockersock
+#     path: /var/run/docker.sock
+#   commands:
+#   - docker run --privileged --rm tonistiigi/binfmt --install all
+# - name: dockerx
+#   image: thegeeklab/drone-docker-buildx:20.10.14
+#   privileged: true
+#   settings:
+#     experimental: true
+#     auto_tag: true
+#     platforms: 
+#     - linux/arm/v7
+#     username: rajiteh
+#     password:
+#       from_secret: gitlab_token
+#     repo: registry.gitlab.com/rajiteh/orca_containers
+#     registry: registry.gitlab.com
+#     auto_tag_suffix: pi-screen-remote
 - name: helm-deploy
   image: alpine/helm:3.8.0
   secrets: [orca_k3s_kubeconfig_b64]
