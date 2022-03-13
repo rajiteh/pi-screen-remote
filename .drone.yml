@@ -2,19 +2,19 @@
 kind: pipeline
 type: kubernetes
 name: default
-volumes:
-- name: dockersock
-  host:
-    path: /var/run/docker.sock
+# volumes:
+# - name: dockersock
+#   host:
+#     path: /var/run/docker.sock
 steps:
 # TODO: move this to a central location, may be drone bootstrap.
-- name: run
-  image: docker
-  volumes:
-  - name: dockersock
-    path: /var/run/docker.sock
-  commands:
-  - docker run --privileged --rm tonistiigi/binfmt --install all
+# - name: run
+#   image: docker
+#   volumes:
+#   - name: dockersock
+#     path: /var/run/docker.sock
+#   commands:
+#   - docker run --privileged --rm tonistiigi/binfmt --install all
 - name: dockerx
   image: thegeeklab/drone-docker-buildx:20.10.14
   privileged: true
