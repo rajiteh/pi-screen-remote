@@ -16,9 +16,10 @@ steps:
 #   commands:
 #   - docker run --privileged --rm tonistiigi/binfmt --install all
 - name: dockerx
-  image: thegeeklab/drone-docker-buildx:20.10.14
+  image: thegeeklab/drone-docker-buildx:20.12.7
   privileged: true
   settings:
+    mtu: 1300
     experimental: true
     auto_tag: true
     platforms: 
